@@ -19,7 +19,6 @@ namespace StarWish.Models
         [DataType(DataType.EmailAddress)]
         [MaxLength(255)]
         public string Email { get; set; }
-        public string Password { get; set; }
 
         [DataType(DataType.Url)]
         [MaxLength(255)]
