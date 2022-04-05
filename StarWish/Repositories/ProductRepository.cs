@@ -77,6 +77,44 @@ namespace StarWish.Repositories
             }
         }
 
+        public List<Product> GetAllProductsByWishListId(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                              
+                       SELECT p.Id AS ProductId, p.Title, p.ImageUrl AS ProductImage,
+                              p.Price, p.Quantity, p.Condition,
+                              p.ItemWebUrl AS ProductWebUrl, p.MyWishListId,
+                              mwl.[Name] AS MyWishListName
+                         FROM Product AS p
+                              LEFT JOIN MyWishList AS mwl ON p.MyWishListId = mwl.id
+                         WHERE p.MyWishListId = @id
+                        ORDER BY p.Price DESC";
+
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    var products = new List<Product>();
+
+                    while (reader.Read())
+                    {
+                        products.Add(NewProductFromReader(reader));
+                    }
+
+                    reader.Close();
+
+                    return products;
+                }
+            }
+        }
+
+
+
         private Product NewProductFromReader(SqlDataReader reader)
         {
             return new Product()

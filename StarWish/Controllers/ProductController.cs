@@ -34,6 +34,13 @@ namespace StarWish.Controllers
             return Ok(product);
         }
 
+        // This will return all products associated with the id of the given my wish list
+        [HttpGet("mywishlistproducts")]
+        public IActionResult GetAllProductsForWishListId(int id)
+        {
+            return Ok(_productRepository.GetAllProductsByWishListId(id));
+        }
+
         // POST api/<ProductController>
         [HttpPost]
         public void Post([FromBody] string value)
