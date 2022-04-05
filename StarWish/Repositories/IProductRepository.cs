@@ -6,5 +6,6 @@ namespace StarWish.Repositories
     public interface IProductRepository
     {
         List<Product> GetAll();
+        Product GetById(int id);
     }
 }
