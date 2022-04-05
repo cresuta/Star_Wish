@@ -156,6 +156,41 @@ namespace StarWish.Repositories
             }
         }
 
+        // We only want to update the qty as all other data shouldn't be altered for each product
+        public void Update(Product product)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        UPDATE Product
+                           SET Title = @Title,
+                               ImageUrl = @ImageUrl,
+                               Price = @Price,
+                               ImageUrl = @ImageUrl,
+                               Quantity = @Quantity,
+                               Condition = @Condition,
+                               ItemWebUrl = @ItemWebUrl,
+                               MyWishListId = @MyWishListId
+                         WHERE Id = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Title", product.Title);
+                    DbUtils.AddParameter(cmd, "@ImageUrl", product.ImageUrl);
+                    DbUtils.AddParameter(cmd, "@Price", product.Price);
+                    DbUtils.AddParameter(cmd, "@Quantity", product.Quantity);
+                    DbUtils.AddParameter(cmd, "@Condition", product.Condition);
+                    DbUtils.AddParameter(cmd, "@ItemWebUrl", product.ItemWebUrl);
+                    DbUtils.AddParameter(cmd, "@MyWishListId", product.MyWishListId);
+                    DbUtils.AddParameter(cmd, "@Id", product.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
         private Product NewProductFromReader(SqlDataReader reader)
         {
             return new Product()

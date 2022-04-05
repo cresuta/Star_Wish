@@ -50,17 +50,24 @@ namespace StarWish.Controllers
             return Ok(_productRepository.GetAll());
         }
 
-        // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _productRepository.Delete(id);  
+            return NoContent();
+        }
+
+        // PUT api/<ProductController>/5
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Product product)
+        {
+            if (id != product.Id)
+            {
+                return BadRequest();
+            }
+
+            _productRepository.Update(product);
             return NoContent();
         }
     }

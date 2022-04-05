@@ -10,5 +10,6 @@ namespace StarWish.Repositories
         List<Product> GetAll();
         List<Product> GetAllProductsByWishListId(int id);
         Product GetById(int id);
+        void Update(Product product);
     }
 }
