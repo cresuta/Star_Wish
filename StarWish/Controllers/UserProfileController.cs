@@ -30,13 +30,6 @@ namespace StarWish.Controllers
             return Ok(user);
         }
 
-        // GET api/<UserProfileController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<UserProfileController>
         [HttpPost]
         public IActionResult Post(UserProfile userProfile)
@@ -46,16 +39,5 @@ namespace StarWish.Controllers
             return CreatedAtAction("GetByEmail", new { email = userProfile.Email }, userProfile);
         }
 
-        // PUT api/<UserProfileController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserProfileController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
