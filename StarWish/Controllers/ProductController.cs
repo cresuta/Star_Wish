@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StarWish.Models;
 using StarWish.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -43,8 +44,10 @@ namespace StarWish.Controllers
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(Product product)
         {
+            _productRepository.Add(product);
+            return Ok(_productRepository.GetAll());
         }
 
         // PUT api/<ProductController>/5

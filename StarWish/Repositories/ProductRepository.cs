@@ -113,7 +113,34 @@ namespace StarWish.Repositories
             }
         }
 
+        public void Add(Product product)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO Product (
+                            Title, ImageUrl, Price, Quantity, Condition,
+                            ItemWebUrl, MyWishListId)
+                        OUTPUT INSERTED.ID
+                        VALUES (
+                             @Title, @ImageUrl, @Price, @Quantity, @Condition,
+                            @ItemWebUrl, @MyWishListId)";
 
+                    DbUtils.AddParameter(cmd, "@Title", product.Title);
+                    DbUtils.AddParameter(cmd, "@ImageUrl", product.ImageUrl);
+                    DbUtils.AddParameter(cmd, "@Price", product.Price);
+                    DbUtils.AddParameter(cmd, "@Quantity", product.Quantity);
+                    DbUtils.AddParameter(cmd, "@Condition", product.Condition);
+                    DbUtils.AddParameter(cmd, "@ItemWebUrl", product.ItemWebUrl);
+                    DbUtils.AddParameter(cmd, "@MyWishListId", product.MyWishListId);
+
+                    product.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
 
         private Product NewProductFromReader(SqlDataReader reader)
         {
