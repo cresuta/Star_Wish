@@ -58,8 +58,10 @@ namespace StarWish.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _productRepository.Delete(id);  
+            return NoContent();
         }
     }
 }

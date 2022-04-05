@@ -6,6 +6,7 @@ namespace StarWish.Repositories
     public interface IProductRepository
     {
         void Add(Product product);
+        void Delete(int id);
         List<Product> GetAll();
         List<Product> GetAllProductsByWishListId(int id);
         Product GetById(int id);
