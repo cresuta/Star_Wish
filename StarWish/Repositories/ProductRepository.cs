@@ -46,17 +46,17 @@ namespace StarWish.Repositories
         {
             return new Product()
             {
-                Id = reader.GetInt32(reader.GetOrdinal("ProductId")),
-                Title = reader.GetString(reader.GetOrdinal("Title")),
-                ImageUrl = DbUtils.GetNullableString(reader, "ProductImage"),
-                Price = reader.GetInt32(reader.GetOrdinal("Price")),
-                Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
-                Condition = reader.GetString(reader.GetOrdinal("Condition")),
-                ItemWebUrl = reader.GetString(reader.GetOrdinal("ProductWebUrl")),
+                Id = DbUtils.GetInt(reader,"ProductId"),
+                Title = DbUtils.GetString(reader,"Title"),
+                ImageUrl = DbUtils.GetString(reader, "ProductImage"),
+                Price = DbUtils.GetInt(reader,"Price"),
+                Quantity = DbUtils.GetInt(reader,"Quantity"),
+                Condition = DbUtils.GetString(reader,"Condition"),
+                ItemWebUrl = DbUtils.GetString(reader,"ProductWebUrl"),
                 MyWishList = new MyWishList()
                 {
-                    Id = reader.GetInt32(reader.GetOrdinal("MyWishListId")),
-                    Name = reader.GetString(reader.GetOrdinal("MyWishListName"))
+                    Id = DbUtils.GetInt(reader,"MyWishListId"),
+                    Name = DbUtils.GetString(reader,"MyWishListName")
                 }
             };
         }
