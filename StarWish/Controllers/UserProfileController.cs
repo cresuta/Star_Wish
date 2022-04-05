@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StarWish.Models;
 using StarWish.Repositories;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -37,8 +39,11 @@ namespace StarWish.Controllers
 
         // POST api/<UserProfileController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(UserProfile userProfile)
         {
+            userProfile.CreateDateTime = DateTime.Now;
+           _userProfileRepository.Add(userProfile);
+            return CreatedAtAction("GetByEmail", new { email = userProfile.Email }, userProfile);
         }
 
         // PUT api/<UserProfileController>/5

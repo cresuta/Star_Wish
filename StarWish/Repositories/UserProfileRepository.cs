@@ -46,5 +46,29 @@ namespace StarWish.Repositories
                 }
             }
         }
+
+        public void Add(UserProfile userProfile)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"INSERT INTO UserProfile (FirstName, LastName, DisplayName, 
+                                                                 Email, CreateDateTime, ProfileImage)
+                                        OUTPUT INSERTED.ID
+                                        VALUES (@FirstName, @LastName, @DisplayName, 
+                                                @Email, @CreateDateTime, @ProfileImage)";
+                    DbUtils.AddParameter(cmd, "@FirstName", userProfile.FirstName);
+                    DbUtils.AddParameter(cmd, "@LastName", userProfile.LastName);
+                    DbUtils.AddParameter(cmd, "@DisplayName", userProfile.DisplayName);
+                    DbUtils.AddParameter(cmd, "@Email", userProfile.Email);
+                    DbUtils.AddParameter(cmd, "@CreateDateTime", userProfile.CreateDateTime);
+                    DbUtils.AddParameter(cmd, "@ProfileImage", userProfile.ProfileImage);
+
+                    userProfile.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
     }
 }
