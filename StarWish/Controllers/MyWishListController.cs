@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StarWish.Models;
 using StarWish.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -16,7 +17,7 @@ namespace StarWish.Controllers
             _myWishListRepository = myWishListRepository;
         }
 
-        // GET: api/<MyWishListController>
+        // GET: api/<MyWishListController> , return wish lists that are linked to the user
         [HttpGet("mywishlists")]
         public IActionResult GetAllWishListsForUserProfile(int userProfileId)
         {
@@ -38,8 +39,11 @@ namespace StarWish.Controllers
 
         // POST api/<MyWishListController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(MyWishList myWishList)
         {
+            _myWishListRepository.Add(myWishList);
+            // return CreatedAtAction("Get", new { id = myWishList.Id }, myWishList);
+            return Ok(_myWishListRepository.GetById(myWishList.Id));
         }
 
         // PUT api/<MyWishListController>/5

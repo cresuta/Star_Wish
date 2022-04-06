@@ -77,6 +77,31 @@ namespace StarWish.Repositories
             }
         }
 
+        public void Add(MyWishList myWishList)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO MyWishList (
+                            Name, CreateDateTime, NumberOfProducts, TotalCost, UserProfileId)
+                        OUTPUT INSERTED.ID
+                        VALUES (
+                             @Name, @CreateDateTime, @NumberOfProducts, @TotalCost, @UserProfileId)";
+
+                    DbUtils.AddParameter(cmd, "@Name", myWishList.Name);
+                    DbUtils.AddParameter(cmd, "@CreateDateTime", myWishList.CreateDateTime);
+                    DbUtils.AddParameter(cmd, "@NumberOfProducts", myWishList.NumberOfProducts);
+                    DbUtils.AddParameter(cmd, "@TotalCost", myWishList.TotalCost);
+                    DbUtils.AddParameter(cmd, "@UserProfileId", myWishList.UserProfileId);
+
+                    myWishList.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
         private MyWishList NewWishListFromReader(SqlDataReader reader)
         {
             return new MyWishList()
