@@ -116,6 +116,26 @@ namespace StarWish.Repositories
             }
         }
 
+        public void Update(MyWishList myWishList)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        UPDATE MyWishList
+                           SET Name = @Name
+                         WHERE Id = @Id";
+
+                    DbUtils.AddParameter(cmd, "@Name", myWishList.Name);
+                    DbUtils.AddParameter(cmd, "@Id", myWishList.Id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         private MyWishList NewWishListFromReader(SqlDataReader reader)
         {
             return new MyWishList()

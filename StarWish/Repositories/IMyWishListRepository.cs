@@ -9,5 +9,6 @@ namespace StarWish.Repositories
         void Delete(int id);
         List<MyWishList> GetAllWishListsByUserProfileId(int id);
         MyWishList GetById(int id);
+        void Update(MyWishList myWishList);
     }
 }

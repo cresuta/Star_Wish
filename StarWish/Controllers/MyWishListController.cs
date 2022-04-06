@@ -54,12 +54,19 @@ namespace StarWish.Controllers
             return NoContent();
         }
 
-        // PUT api/<MyWishListController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PATCH api/<MyWishListController>/5
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, MyWishList myWishList)
         {
+            if (id != myWishList.Id)
+            {
+                return BadRequest();
+            }
+
+            _myWishListRepository.Update(myWishList);
+            return NoContent();
         }
 
-       
+
     }
 }
