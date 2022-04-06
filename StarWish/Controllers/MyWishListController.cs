@@ -46,16 +46,20 @@ namespace StarWish.Controllers
             return Ok(_myWishListRepository.GetById(myWishList.Id));
         }
 
+        // DELETE api/<MyWishListController>/5
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _myWishListRepository.Delete(id);
+            return NoContent();
+        }
+
         // PUT api/<MyWishListController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<MyWishListController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }
