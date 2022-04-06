@@ -25,9 +25,15 @@ namespace StarWish.Controllers
 
         // GET api/<MyWishListController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult GetById(int id)
         {
-            return "value";
+            var myWishList = _myWishListRepository.GetById(id);
+            if (myWishList == null)
+            {
+                return NotFound();
+            }
+            return Ok(myWishList);
+
         }
 
         // POST api/<MyWishListController>

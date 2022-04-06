@@ -25,7 +25,7 @@ namespace StarWish.Controllers
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             var product = _productRepository.GetById(id);
             if(product == null)

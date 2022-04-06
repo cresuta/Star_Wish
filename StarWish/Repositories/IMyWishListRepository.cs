@@ -6,5 +6,6 @@ namespace StarWish.Repositories
     public interface IMyWishListRepository
     {
         List<MyWishList> GetAll();
+        MyWishList GetById(int id);
     }
 }

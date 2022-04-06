@@ -42,6 +42,38 @@ namespace StarWish.Repositories
             }
         }
 
+        public MyWishList GetById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                       SELECT mwl.Id AS MyWishListId, mwl.Name, mwl.CreateDateTime,
+                              mwl.NumberOfProducts, mwl.TotalCost,
+                              up.Id AS UserProfileId, up.Email
+                         FROM MyWishlist AS mwl
+                              LEFT JOIN UserProfile AS up ON mwl.UserProfileId = up.id
+                        WHERE mwl.Id = @id";
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
+
+                    var reader = cmd.ExecuteReader();
+
+                    MyWishList myWishList = null;
+                    if (reader.Read())
+                    {
+                        myWishList = NewWishListFromReader(reader);
+                    }
+
+                    reader.Close();
+
+                    return myWishList;
+                }
+            }
+        }
+
         private MyWishList NewWishListFromReader(SqlDataReader reader)
         {
             return new MyWishList()
