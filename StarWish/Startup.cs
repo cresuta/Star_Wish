@@ -29,6 +29,7 @@ namespace StarWish
         {
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IMyWishListRepository, MyWishListRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

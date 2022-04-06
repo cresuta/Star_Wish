@@ -58,9 +58,9 @@ namespace StarWish.Controllers
             return NoContent();
         }
 
-        // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, Product product)
+        // PATCH api/<ProductController>/5
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, Product product)
         {
             if (id != product.Id)
             {
