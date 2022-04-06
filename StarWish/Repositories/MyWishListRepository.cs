@@ -12,7 +12,7 @@ namespace StarWish.Repositories
         {
         }
 
-        public List<MyWishList> GetAll()
+        public List<MyWishList> GetAllWishListsByUserProfileId(int id)
         {
             using (var conn = Connection)
             {
@@ -25,7 +25,10 @@ namespace StarWish.Repositories
                               up.Id AS UserProfileId, up.Email
                          FROM MyWishlist AS mwl
                               LEFT JOIN UserProfile AS up ON mwl.UserProfileId = up.id
+                        WHERE up.Id = @id
                         ORDER BY CreateDateTime DESC";
+
+                    DbUtils.AddParameter(cmd, "@Id", id);
 
                     var reader = cmd.ExecuteReader();
 
@@ -86,7 +89,7 @@ namespace StarWish.Repositories
                 UserProfileId = DbUtils.GetInt(reader, "UserProfileId"),
                 UserProfile = new UserProfile()
                 {
-                    Id = DbUtils.GetInt(reader, "MyWishListId"),
+                    Id = DbUtils.GetInt(reader, "UserProfileId"),
                     Email = DbUtils.GetString(reader, "Email")
                 }
             };

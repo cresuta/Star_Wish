@@ -17,10 +17,10 @@ namespace StarWish.Controllers
         }
 
         // GET: api/<MyWishListController>
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpGet("mywishlists")]
+        public IActionResult GetAllWishListsForUserProfile(int userProfileId)
         {
-            return Ok(_myWishListRepository.GetAll());
+            return Ok(_myWishListRepository.GetAllWishListsByUserProfileId(userProfileId));
         }
 
         // GET api/<MyWishListController>/5
