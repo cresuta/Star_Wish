@@ -28,7 +28,7 @@ export default function Register() {
   };
 
   return (
-    <div className="container">
+    <div className="signup__container">
       <img
         src={require("../imgs/app-logo.png")}
         alt="Star Wish Logo"

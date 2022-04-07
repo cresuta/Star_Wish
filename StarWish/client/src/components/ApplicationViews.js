@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import { UserProfileContext } from "../providers/UserProfileProvider";
+import Header from "./Header";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -15,12 +16,12 @@ export default function ApplicationViews() {
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     );
+  } else {
+    return (
+      <Routes>
+        <Route path="/" element={<Header />} />
+        {/* <Route path="/" element={<Dashboard />} /> */}
+      </Routes>
+    );
   }
-//   else{
-//    return(
-//       <Routes>
-//         <Route path="/" element={<Hello />} />
-//       </Routes>
-//    );
-//   }
 }
