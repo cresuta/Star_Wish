@@ -13,9 +13,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Header() {
   return (
-    <Navbar bg="light" expand={false}>
+    <Navbar className="navbar" bg="light" expand={false}>
       <Container fluid>
-        <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+        <Navbar.Brand href="#">
+          <img
+            src={require("../imgs/app-logo.png")}
+            width="200"
+            height="200"
+            className="d-inline-block align-top navbar__img"
+            alt="React Bootstrap logo"
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
