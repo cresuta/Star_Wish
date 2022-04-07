@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Login";
+import Register from "./Register";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 
 export default function ApplicationViews() {
@@ -10,7 +11,7 @@ export default function ApplicationViews() {
     return (
       <Routes>
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/register" element={<Register />} /> */}
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     );
