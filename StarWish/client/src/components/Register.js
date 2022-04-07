@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Form } from "reactstrap";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -14,22 +14,17 @@ export default function Register() {
   const [email, setEmail] = useState();
   const [profileImage, setProfileImage] = useState();
   const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
 
   const registerClick = (e) => {
     e.preventDefault();
-    if (password && password !== confirmPassword) {
-      alert("Passwords don't match. Do better.");
-    } else {
-      const userProfile = {
-        firstName,
-        lastName,
-        displayName,
-        profileImage,
-        email,
-      };
-      register(userProfile, password).then(() => navigate("/"));
-    }
+    const userProfile = {
+      firstName,
+      lastName,
+      displayName,
+      profileImage,
+      email,
+    };
+    register(userProfile, password).then(() => navigate("/"));
   };
 
   return (
@@ -44,7 +39,7 @@ export default function Register() {
           <Form className="signup" onSubmit={registerClick}>
             <div className="signup__fieldcontainer1">
               <div className="signup__field">
-              <i class="signup__icon bi bi-person"></i>
+                <i class="signup__icon bi bi-person"></i>
                 <input
                   id="firstName"
                   type="text"
@@ -54,7 +49,7 @@ export default function Register() {
                 />
               </div>
               <div className="signup__field">
-              <i class="signup__icon bi bi-person"></i>
+                <i class="signup__icon bi bi-person"></i>
                 <input
                   id="lastName"
                   type="text"
@@ -66,29 +61,7 @@ export default function Register() {
             </div>
             <div className="signup__fieldcontainer2">
               <div className="signup__field">
-              <i class="signup__icon bi bi-display"></i>
-                <input
-                  id="displayName"
-                  type="text"
-                  className="signup__input"
-                  placeholder="Display Name"
-                  onChange={(e) => setDisplayName(e.target.value)}
-                />
-              </div>
-              <div className="signup__field">
-              <i class="signup__icon bi bi-card-image"></i>
-                <input
-                  id="profileImage"
-                  type="text"
-                  className="signup__input"
-                  placeholder="Profile Image"
-                  onChange={(e) => setProfileImage(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className="signup__fieldcontainer3">
-              <div className="signup__field">
-              <i class="signup__icon bi bi-envelope"></i>
+                <i class="signup__icon bi bi-file-lock"></i>
                 <input
                   id="email"
                   type="email"
@@ -98,7 +71,7 @@ export default function Register() {
                 />
               </div>
               <div className="signup__field">
-              <i class="signup__icon bi bi-file-lock"></i>
+                <i class="signup__icon bi bi-file-lock"></i>
                 <input
                   id="password"
                   type="password"
@@ -108,6 +81,29 @@ export default function Register() {
                 />
               </div>
             </div>
+            <div className="signup__fieldcontainer3">
+              <div className="signup__field">
+                <i class="signup__icon bi bi-display"></i>
+                <input
+                  id="displayName"
+                  type="text"
+                  className="signup__input"
+                  placeholder="Display Name"
+                  onChange={(e) => setDisplayName(e.target.value)}
+                />
+              </div>
+              <div className="signup__field">
+                <i class="signup__icon bi bi-card-image"></i>
+                <input
+                  id="profileImage"
+                  type="text"
+                  className="signup__input"
+                  placeholder="Profile Image"
+                  onChange={(e) => setProfileImage(e.target.value)}
+                />
+              </div>
+            </div>
+
             <button className="button signup__submit">
               <span className="button__text">Sign up</span>
               <i class="button__icon bi bi-chevron-right"></i>
