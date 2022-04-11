@@ -309,10 +309,6 @@ body {
 	font-size: 1.3em;
 }
 
-#welcome-displayname {
-	padding-right: 3px;
-}
-
 /* Footer */
 .footer {
 	max-height: 50px;
@@ -360,4 +356,20 @@ body {
 
 .search-btn {
 	width: 175px;
+}
+
+/* Dashboard - ads */
+.dashboard-ad {
+	width: 100vw;
+	height: 67vh;
+}
+
+.ad-text {
+	position: absolute;
+	top: 25px;
+	left: -400px;
+}
+
+.ad-text h3 {
+	font-size: 1;
 }
