@@ -9,7 +9,6 @@ export function UserProfileProvider(props) {
   const userProfile = sessionStorage.getItem("userProfile");
   const [isLoggedIn, setIsLoggedIn] = useState(userProfile != null);
 
-
   const login = (userObject) => {
     return fetch(`${apiUrl}/api/userprofile/getbyemail?email=${userObject.email}`)
     .then((r) => r.json())
@@ -51,7 +50,7 @@ export function UserProfileProvider(props) {
 
 
   return (
-    <UserProfileContext.Provider value={{ isLoggedIn, login, logout, register,  }}>
+    <UserProfileContext.Provider value={{ isLoggedIn, login, logout, register}}>
        {props.children}
     </UserProfileContext.Provider>
   );

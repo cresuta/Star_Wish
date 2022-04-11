@@ -309,6 +309,10 @@ body {
 	font-size: 1.3em;
 }
 
+#welcome-displayname {
+	padding-right: 3px;
+}
+
 /* Footer */
 .footer {
 	max-height: 50px;
