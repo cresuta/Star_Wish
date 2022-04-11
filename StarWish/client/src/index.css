@@ -359,17 +359,62 @@ body {
 }
 
 /* Dashboard - ads */
-.dashboard-ad {
+.dashboard-ad1 {
 	width: 100vw;
 	height: 67vh;
 }
 
+.dashboard-ad2 {
+	min-width: 120vw;
+	height: 67vh;
+	position: relative;
+	top: -300px;
+}
+
+.dashboard-ad3 {
+	width: 100vw;
+	height: 67vh;
+	position: relative;
+	top: -300px;
+}
+
+.dashboard-ad4 {
+	width: 100vw;
+	height: 67vh;
+	position: relative;
+	top: -150px;
+}
+
+
 .ad-text {
 	position: absolute;
 	top: 25px;
-	left: -400px;
+	right: 50%;
 }
 
-.ad-text h3 {
-	font-size: 1;
+.ad-text2 {
+	position: absolute;
+	top: 325px;
+	right: 50%;
+}
+
+.ad-text3 {
+	position: absolute;
+	top: 325px;
+	right: 50%;
+}
+
+.ad-text4 {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+}
+
+.ad-text-heading {
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.ad-text-content {
+	font-weight: 500;
 }
