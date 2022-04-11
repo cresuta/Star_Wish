@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { UserProfileContext } from "../providers/UserProfileProvider";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+
+  const {logout} = useContext(UserProfileContext);
+  const navigate = useNavigate();
+  const signOut = (e) => {
+    e.preventDefault();
+    logout();
+    navigate("/login");
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -16,7 +27,7 @@ export default function Header() {
                Wish Lists
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/login">
+              <NavDropdown.Item onClick={signOut}>
                 Sign Out
               </NavDropdown.Item>
             </NavDropdown>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 
 export const SearchForm = () => {
+
   return (
     <>
       <InputGroup className="searchform">
