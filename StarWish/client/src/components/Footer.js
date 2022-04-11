@@ -10,10 +10,11 @@ export default function Footer() {
           <Navbar.Brand
             href="https://github.com/cresuta/Star_Wish"
             target="_blank"
-            className="footer-text"
+            id="footer-icon"
           >
-            <i class="bi bi-github github-icon"></i>Star Wish | 2022
+            <i class="bi bi-github github-icon"></i>Star Wish | 
           </Navbar.Brand>
+          <span id="footer-text">2022</span>
         </Container>
       </Col>
     </Navbar>

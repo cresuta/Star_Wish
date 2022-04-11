@@ -302,6 +302,13 @@ body {
 	flex-grow: 0 !important;
 }
 
+#shopping-cart {
+	display: flex;
+	align-self: center;
+	margin-left: 1em;
+	font-size: 1.3em;
+}
+
 /* Footer */
 .footer {
 	max-height: 50px;
@@ -314,14 +321,39 @@ body {
 	text-align: center;
   }
   
-  .footer-text {
+  #footer-icon {
 	font-size: 1em;
 	position: relative;
 	top: 100%;
 	left: 3%;
 	transform: translate(-50%, -50%);
   }
+
+  #footer-text {
+	  margin-left: 1.25em;
+	  font-size: 1.12em;
+  }
   
   .github-icon {
 	margin-right: 5px;
   }
+
+/* Search Form */
+.searchform {
+	max-width: 75vw;
+	margin: 1em auto;
+}
+
+.form-field {
+	height: 40px;
+	margin: 1em auto;
+	
+}
+
+.form-field-input {
+	border-color: black;
+}
+
+.search-btn {
+	width: 175px;
+}
