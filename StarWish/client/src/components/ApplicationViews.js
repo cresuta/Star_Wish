@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import { UserProfileContext } from "../providers/UserProfileProvider";
-import Header from "./Header";
+import { UserProfileContext, UserProfileProvider } from "../providers/UserProfileProvider";
+import { Dashboard } from "./Dashboard";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -19,8 +19,7 @@ export default function ApplicationViews() {
   } else {
     return (
       <Routes>
-        <Route path="/" element={<Header />} />
-        {/* <Route path="/" element={<Dashboard />} /> */}
+        <Route path="/" element={<Dashboard />} />
       </Routes>
     );
   }

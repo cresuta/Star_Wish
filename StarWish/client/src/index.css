@@ -299,5 +299,29 @@ body {
 
 /* Header */
 .navbar-rightside {
-	flex-grow: 0;
+	flex-grow: 0 !important;
 }
+
+/* Footer */
+.footer {
+	max-height: 50px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+  }
+  
+  .container {
+	text-align: center;
+  }
+  
+  .footer-text {
+	font-size: 1em;
+	position: relative;
+	top: 100%;
+	left: 3%;
+	transform: translate(-50%, -50%);
+  }
+  
+  .github-icon {
+	margin-right: 5px;
+  }
