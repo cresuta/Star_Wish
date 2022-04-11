@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 
 export const SearchForm = () => {
