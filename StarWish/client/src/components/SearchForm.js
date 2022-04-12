@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { ProductContext } from "../providers/ProductProvider";
 
 export const SearchForm = () => {
+  const { getAllProducts, searchQuery, setSearchQuery } =
+    useContext(ProductContext);
 
-  const searchSubmit = (e) => {
-    e.preventDefault();
-    const userInput = document.querySelector("#productSearch").value;
+  const handleControlledInputChange = (e) => {
+    const userInput = e.target.value;
     console.log(userInput);
+    setSearchQuery(userInput);
   };
 
+  const handleClickFetchApi = (e) => {
+    e.preventDefault();
+    console.log(`Clicked! Searched input: ${searchQuery}`);
+    getAllProducts(searchQuery);
+  };
 
   return (
     <>
@@ -24,13 +32,14 @@ export const SearchForm = () => {
           aria-describedby="basic-addon2"
           className="form-field form-field-input"
           id="productSearch"
+          onChange={handleControlledInputChange}
         />
 
         <Button
           variant="primary"
           className="form-field search-btn"
           id="button-addon2"
-          onClick={searchSubmit}
+          onClick={handleClickFetchApi}
         >
           Search
         </Button>

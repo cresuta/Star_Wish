@@ -1,4 +1,4 @@
-import React from "react";git 
+import React from "react";
 
 export const Product = ({ product }) => {
   return (
@@ -7,7 +7,7 @@ export const Product = ({ product }) => {
           
       </div>
       <div className="product-info">
-          <a target="_blank" href="#"><h3 className="product-title">Title w/ itemWebUrl Link</h3></a>
+          <a target="_blank" href={product.itemWebUrl}><h3 className="product-title">{product.title}</h3></a>
           <div className="product-subtitle">Condition, Brand, Product</div>
           <div className="product-details">
               <p className="product-price">Price</p>

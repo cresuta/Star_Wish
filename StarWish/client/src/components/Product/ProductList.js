@@ -1,19 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Product } from "./Product";
 import { ProductContext } from "../../providers/ProductProvider";
-import { useNavigate } from "react-router-dom";
-import { SearchForm } from "../SearchForm";
 
 export const ProductList = () => {
-  const { products, getAllProducts } = useContext(ProductContext);
-
-  useEffect(() => {
-    getAllProducts();
-  }, []);
+  const { products } = useContext(ProductContext);
 
   return (
     <>
-      <SearchForm />
       <div className="search-results">
         {products.map((p) => (
           <Product key={p.id} product={p} />

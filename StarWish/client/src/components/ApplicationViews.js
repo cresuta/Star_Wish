@@ -2,9 +2,14 @@ import React, { useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import { UserProfileContext, UserProfileProvider } from "../providers/UserProfileProvider";
+import {
+  UserProfileContext,
+  UserProfileProvider,
+} from "../providers/UserProfileProvider";
 import { Dashboard } from "./Dashboard";
 import { ProductList } from "./Product/ProductList";
+import { ProductProvider } from "../providers/ProductProvider";
+import { SearchForm } from "./SearchForm";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -19,9 +24,11 @@ export default function ApplicationViews() {
     );
   } else {
     return (
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-      </Routes>
+      <ProductProvider>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </ProductProvider>
     );
   }
 }
