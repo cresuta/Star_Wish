@@ -3,6 +3,13 @@ import { Button, FormControl, InputGroup } from "react-bootstrap";
 
 export const SearchForm = () => {
 
+  const searchSubmit = (e) => {
+    e.preventDefault();
+    const userInput = document.querySelector("#productSearch").value;
+    console.log(userInput);
+  };
+
+
   return (
     <>
       <InputGroup className="searchform">
@@ -16,12 +23,14 @@ export const SearchForm = () => {
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           className="form-field form-field-input"
+          id="productSearch"
         />
 
         <Button
           variant="primary"
           className="form-field search-btn"
           id="button-addon2"
+          onClick={searchSubmit}
         >
           Search
         </Button>

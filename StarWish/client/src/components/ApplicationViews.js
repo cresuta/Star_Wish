@@ -4,6 +4,7 @@ import Login from "./Login";
 import Register from "./Register";
 import { UserProfileContext, UserProfileProvider } from "../providers/UserProfileProvider";
 import { Dashboard } from "./Dashboard";
+import { ProductList } from "./Product/ProductList";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
