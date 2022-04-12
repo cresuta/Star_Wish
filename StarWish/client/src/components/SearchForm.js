@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { ProductContext } from "../providers/ProductProvider";
 

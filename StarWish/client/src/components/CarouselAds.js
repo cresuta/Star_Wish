@@ -5,7 +5,7 @@ export const CarouselAds = () => {
   return (
     <>
       <Carousel>
-        <Carousel.Item className="dashboard-ad1" interval={5000}>
+        <Carousel.Item className="dashboard-ad1" interval={4000}>
           <img
             src={require("../imgs/tech-ad.jpg")}
             className="d-block w-100"
@@ -23,7 +23,7 @@ export const CarouselAds = () => {
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="dashboard-ad2" interval={5000}>
+        <Carousel.Item className="dashboard-ad2" interval={4000}>
           <img
             src={require("../imgs/personalize-ad.jpg")}
             className="d-block w-100"
@@ -39,7 +39,7 @@ export const CarouselAds = () => {
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="dashboard-ad3" interval={5000}>
+        <Carousel.Item className="dashboard-ad3" interval={4000}>
           <img
             src={require("../imgs/discount-ad.jpg")}
             className="d-block w-100"
@@ -57,7 +57,7 @@ export const CarouselAds = () => {
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="dashboard-ad4" interval={5000}>
+        <Carousel.Item className="dashboard-ad4" interval={400000}>
           <img
             src={require("../imgs/autoparts-ad.jpg")}
             className="d-block w-100"

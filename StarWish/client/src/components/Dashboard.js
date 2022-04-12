@@ -2,7 +2,7 @@ import { SearchForm } from "./SearchForm";
 import { CarouselAds } from "./CarouselAds";
 import { ProductContext } from "../providers/ProductProvider";
 import { ProductList } from "./Product/ProductList";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export const Dashboard = () => {
 

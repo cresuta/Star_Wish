@@ -8,7 +8,7 @@ export const ProductList = () => {
   return (
     <>
       <div className="search-results">
-        {products.map((p) => (
+        {products?.map((p) => (
           <Product key={p.id} product={p} />
         ))}
       </div>
