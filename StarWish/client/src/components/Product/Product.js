@@ -1,14 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../providers/ProductProvider";
+import { Form } from "react-bootstrap";
 
 export const Product = ({ product }) => {
   let { updateCartCount } = useContext(ProductContext);
 
+  console.log(product);
   return (
     <section className="product-wrapper">
       <div className="product-img-container">
         <img
-          src={product?.image.imageUrl}
+          src={product.image?.imageUrl}
           alt="Hello"
           className="product-img"
         />
@@ -28,7 +30,18 @@ export const Product = ({ product }) => {
           <p className="product-offer">Buy It Now</p>
           <p className="product-shipping">Free Shipping</p>
         </div>
+        <div className="product-qty">
+          <label>Quantity:</label>
+          <Form.Select size="sm" className="qty-select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </Form.Select>
+        </div>
       </div>
+
       <span id="star-icon-add-to-cart" onClick={updateCartCount}>
         <i class="bi bi-star"></i>
       </span>
