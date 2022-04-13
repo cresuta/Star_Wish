@@ -24,11 +24,11 @@ export default function ApplicationViews() {
     );
   } else {
     return (
-      <ProductProvider>
+      // <ProductProvider>
         <Routes>
           <Route path="/" element={<Dashboard />} />
         </Routes>
-      </ProductProvider>
+      // </ProductProvider>
     );
   }
 }

@@ -3,11 +3,14 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../providers/ProductProvider";
 
 export default function Header() {
+
   const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
-  const { logout } = useContext(UserProfileContext);
-  const { isLoggedIn } = useContext(UserProfileContext);
+  const { logout, isLoggedIn } = useContext(UserProfileContext);
+
+  let { cartCount } = useContext(ProductContext);
 
   const navigate = useNavigate();
   const signOut = (e) => {
@@ -22,8 +25,7 @@ export default function Header() {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand>
-            Welcome back,{" "}
-            <span>{currentUser.firstName}</span>!
+            Welcome back, <span>{currentUser.firstName}</span>!
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="navbar-rightside" id="basic-navbar-nav">
@@ -37,7 +39,16 @@ export default function Header() {
                 <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>
               </NavDropdown>
 
-              <i class="bi bi-cart2" id="shopping-cart"></i>
+              <a
+                id="shopping-cart"
+                href="#"
+                aria-label="View your shopping cart"
+              >
+                <i class="bi bi-cart"></i>
+                <span class="cart-basket-count d-flex align-items-center justify-content-center">
+                  {cartCount}
+                </span>
+              </a>
             </Nav>
           </Navbar.Collapse>
         </Container>

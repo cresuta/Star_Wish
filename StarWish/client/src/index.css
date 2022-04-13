@@ -300,13 +300,35 @@ body {
 /* Header */
 .navbar-rightside {
 	flex-grow: 0 !important;
+	margin-right: 3em;
 }
 
 #shopping-cart {
-	display: flex;
-	align-self: center;
+	/* display: flex;
+	align-self: center; */
+	position: absolute;
+	top: 11px;
+	right: 125px;
 	margin-left: 1em;
 	font-size: 1.3em;
+	color: black;
+}
+
+#shopping-cart:hover {
+	text-decoration: none;
+	color: #0d6efd; 
+}
+
+.cart-basket-count {
+	font-size: .6rem;
+  position: fixed;
+  top: 8px;
+  right: 116px;
+  width: 18px;
+  height: 18px;
+  color: #fff;
+  background-color: #418deb;
+  border-radius: 50%;
 }
 
 /* Footer */
@@ -510,4 +532,6 @@ body {
 #star-icon-add-to-cart:active {
 	transform: translateY(2px);
 }
+
+
 

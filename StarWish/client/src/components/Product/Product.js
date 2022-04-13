@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { ProductContext } from "../../providers/ProductProvider";
 
 export const Product = ({ product }) => {
+
+  let { updateCartCount } = useContext(ProductContext);
+
+  // function to update cart count in navbar every time user clicks a start in product view
+  // const updateCartCount = () => {
+  //   const newClicks = ++cartCount;
+  //   setCartCount(newClicks);
+  // };
+
   return (
     <section className="product-wrapper">
       <div className="product-img-container">
@@ -26,7 +36,7 @@ export const Product = ({ product }) => {
           <p className="product-shipping">Free Shipping</p>
         </div>
       </div>
-      <span id="star-icon-add-to-cart">
+      <span id="star-icon-add-to-cart" onClick={updateCartCount}>
         <i class="bi bi-star"></i>
       </span>
     </section>
