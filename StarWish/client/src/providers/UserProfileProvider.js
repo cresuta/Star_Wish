@@ -1,4 +1,5 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
+import { ProductContext } from "./ProductProvider";
 
 export const UserProfileContext = createContext();
 
@@ -8,6 +9,7 @@ export function UserProfileProvider(props) {
 
   const userProfile = sessionStorage.getItem("userProfile");
   const [isLoggedIn, setIsLoggedIn] = useState(userProfile != null);
+  let { setCartCount } = useContext(ProductContext);
 
   const login = (userObject) => {
     return fetch(`${apiUrl}/api/userprofile/getbyemail?email=${userObject.email}`)
@@ -27,6 +29,8 @@ export function UserProfileProvider(props) {
   // This logout will clear sessionStorage and "userProfile" will be empty
   const logout = () => {
         sessionStorage.clear()
+        // when the user is logged out, we'll set cart count to zero
+        setCartCount(0);
         setIsLoggedIn(false);
   };
 

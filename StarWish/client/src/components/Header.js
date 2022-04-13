@@ -4,13 +4,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../providers/ProductProvider";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-
   const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
   const { logout, isLoggedIn } = useContext(UserProfileContext);
 
-  let { cartCount } = useContext(ProductContext);
+  let { cartCount, setCartCount } = useContext(ProductContext);
+
+  // these useEffects will make sure that the cart count does not reset to zero if the current user refreshes page or navigates back to dashboard
+  useEffect(() => {
+    setCartCount(JSON.parse(window.localStorage.getItem("cartCount")));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("cartCount", cartCount);
+  }, [cartCount]);
 
   const navigate = useNavigate();
   const signOut = (e) => {
@@ -39,16 +48,12 @@ export default function Header() {
                 <NavDropdown.Item onClick={signOut}>Sign Out</NavDropdown.Item>
               </NavDropdown>
 
-              <a
-                id="shopping-cart"
-                href="#"
-                aria-label="View your shopping cart"
-              >
+              <Link to="#" id="shopping-cart">
                 <i class="bi bi-cart"></i>
                 <span class="cart-basket-count d-flex align-items-center justify-content-center">
                   {cartCount}
                 </span>
-              </a>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

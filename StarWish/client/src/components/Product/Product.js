@@ -1,15 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../../providers/ProductProvider";
 
 export const Product = ({ product }) => {
-
   let { updateCartCount } = useContext(ProductContext);
-
-  // function to update cart count in navbar every time user clicks a start in product view
-  // const updateCartCount = () => {
-  //   const newClicks = ++cartCount;
-  //   setCartCount(newClicks);
-  // };
 
   return (
     <section className="product-wrapper">
