@@ -185,7 +185,7 @@ namespace StarWish.Repositories
                 Id = DbUtils.GetInt(reader,"ProductId"),
                 Title = DbUtils.GetString(reader,"Title"),
                 ImageUrl = DbUtils.GetString(reader, "ProductImage"),
-                Price = DbUtils.GetInt(reader,"Price"),
+                Price = DbUtils.GetDouble(reader,"Price"),
                 Quantity = DbUtils.GetInt(reader,"Quantity"),
                 Condition = DbUtils.GetString(reader,"Condition"),
                 ItemWebUrl = DbUtils.GetString(reader,"ProductWebUrl"),

@@ -10,6 +10,7 @@ import { Dashboard } from "./Dashboard";
 import { ProductList } from "./Product/ProductList";
 import { ProductProvider } from "../providers/ProductProvider";
 import { SearchForm } from "./SearchForm";
+import { MyWishListProvider } from "../providers/MyWishListProvider";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -24,11 +25,9 @@ export default function ApplicationViews() {
     );
   } else {
     return (
-      // <ProductProvider>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-        </Routes>
-      // </ProductProvider>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
     );
   }
 }

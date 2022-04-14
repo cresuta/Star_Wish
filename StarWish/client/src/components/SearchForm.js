@@ -3,19 +3,19 @@ import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { ProductContext } from "../providers/ProductProvider";
 
 export const SearchForm = () => {
-  const { getAllProducts, searchQuery, setSearchQuery } =
+  const { getAllProductsFromEbay, searchQuery, setSearchQuery } =
     useContext(ProductContext);
 
   const handleControlledInputChange = (e) => {
     const userInput = e.target.value;
-    console.log(userInput);
+    // console.log(userInput);
     setSearchQuery(userInput);
   };
 
   const handleClickFetchApi = (e) => {
     e.preventDefault();
-    console.log(`Clicked! Searched input: ${searchQuery}`);
-    getAllProducts(searchQuery);
+    // console.log(`Clicked! Searched input: ${searchQuery}`);
+    getAllProductsFromEbay(searchQuery);
   };
 
   return (
