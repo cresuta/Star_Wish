@@ -11,10 +11,9 @@ export const CartList = () => {
       getAllProductsFromWishListId(myCurrentCart.id)
   })
 
-    console.log(myWishListProducts)
   return (
     <>
-      <div className="search-results">
+      <div className="cart-search-results">
         {myWishListProducts?.map((p) => (
           <CartProduct key={p.id} product={p} />
         ))}

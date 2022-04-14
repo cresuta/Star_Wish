@@ -1,23 +1,20 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 export const CartProduct = ({ product }) => {
   return (
     <>
-      {/* <Card className="" style={{ width: "18rem" }}>
-            <Card.Img className="" variant="top" src="" />
-            <Card.Body>
-              <Card.Title>{product?.title}</Card.Title>
-              <Card.Text>
-                Designed and developed both front-end interfaces and back-end
-                functionality within the homepage and events section of the app.
-              </Card.Text>
-            </Card.Body>
-          </Card> */}
       <section className="cart-product-wrapper">
+        <div className="cart-product-delete">
+          <i class="bi bi-x-square"></i>
+        </div>
         <div className="cart-product-img-container">
           <img
-            src={product.image?.imageUrl}
+            src={
+              product?.imageUrl
+                ? product?.imageUrl
+                : "https://images.unsplash.com/photo-1628911774602-74a0cfee9b0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            }
             alt="Hello"
             className="cart-product-img"
           />
@@ -31,14 +28,26 @@ export const CartProduct = ({ product }) => {
           >
             <h3 className="cart-product-title2">{product?.title}</h3>
           </a>
-          <div className="cart-product-subtitle">Brand {product?.condition}</div>
-          <div className="cart-product-details">
-            <p className="cart-product-price">${product?.price.value}</p>
-            <p className="cart-product-offer">Buy It Now</p>
-            <p className="cart-product-shipping">Free Shipping</p>
+          <div className="cart-product-subtitle">
+            Brand {product?.condition}
+            <span>
+              <i class="bi bi-dot"></i>Buy It Now<i class="bi bi-dot"></i>Free
+              Shipping
+            </span>
           </div>
-          <div className="cart-product-qty">
-            <label>Quantity:</label>
+          <div className="cart-product-details">
+            <p className="cart-product-price">${product?.price}</p>
+            <div className="cart-product-qty">
+              <label>Qty</label>
+              <Form.Select size="sm" name="quantity" className="qty-select">
+                <option value="1">{product?.quantity}</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </Form.Select>
+            </div>
           </div>
         </div>
       </section>

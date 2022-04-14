@@ -12,11 +12,11 @@ import { CartList } from "./ShoppingCart/CartList";
 
 export default function Header() {
   const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
-  const { logout, isLoggedIn } = useContext(UserProfileContext);
+  const { logout } = useContext(UserProfileContext);
   const { myCurrentCart, getAllWishListsByUserId } =
     useContext(MyWishListContext);
-  let { cartCount, setCartCount } = useContext(ProductContext);
-
+  let { cartCount, setCartCount, myWishListProducts } =
+    useContext(ProductContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,16 +25,8 @@ export default function Header() {
   useEffect(() => {
     getAllWishListsByUserId(currentUser.id).then(() => {
       setCartCount(JSON.parse(window.localStorage.getItem("cartCount")));
-      console.log(
-        "10PACK PCI-E 1x to 16x Powered USB3.0 GPU Riser Extender Adapter Card VER 009s"
-          .length
-      );
     });
-  }, []);
-
-  useEffect(() => {
-    getAllWishListsByUserId(currentUser.id);
-  }, []);
+  });
 
   useEffect(() => {
     window.localStorage.setItem("cartCount", cartCount);
@@ -46,6 +38,14 @@ export default function Header() {
     logout();
     navigate("/login");
   };
+
+  const subTotal = (shoppingCart) => {
+    let sum = 0;
+    for(let i = 0; i < shoppingCart.length; i++) {
+      sum += shoppingCart[i].price;
+    }
+    return sum;
+  }
 
   // we only want to display the header if the user is logged in and in the dashboard and we do NOT want this to display on login/register pages
   return (
@@ -78,11 +78,17 @@ export default function Header() {
         </Container>
       </Navbar>
 
-      <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        placement="end"
+        className="shopping-cart"
+      >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="offcanvas__body">
+          <p>Subtotal ({myWishListProducts.length} items): ${subTotal(myWishListProducts)}</p>
           <CartList />
         </Offcanvas.Body>
       </Offcanvas>

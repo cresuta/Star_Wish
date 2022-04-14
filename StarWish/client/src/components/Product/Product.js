@@ -10,7 +10,10 @@ export const Product = ({ product }) => {
 
   const [cartProduct, setCartProduct] = useState({
     title: product.title,
-    imageUrl: product?.imageUrl === undefined ? "" : product.image?.imageUrl,
+    imageUrl:
+      product.image?.imageUrl === undefined
+        ? ""
+        : product.image?.imageUrl,
     price: +product?.price.value,
     quantity: 0,
     condition: product?.condition,
