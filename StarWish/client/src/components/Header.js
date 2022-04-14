@@ -42,7 +42,15 @@ export default function Header() {
   const subTotal = (shoppingCart) => {
     let sum = 0;
     for(let i = 0; i < shoppingCart.length; i++) {
-      sum += shoppingCart[i].price;
+      sum += shoppingCart[i].price * shoppingCart[i].quantity;
+    }
+    return sum.toFixed(2);
+  }
+
+  const subTotalItemCount = (shoppingCart) => {
+    let sum = 0;
+    for(let i = 0; i < shoppingCart.length; i++) {
+      sum += shoppingCart[i].quantity;
     }
     return sum;
   }
@@ -88,7 +96,7 @@ export default function Header() {
           <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="offcanvas__body">
-          <p>Subtotal ({myWishListProducts.length} items): ${subTotal(myWishListProducts)}</p>
+          <p>Subtotal ({subTotalItemCount(myWishListProducts)} items): ${subTotal(myWishListProducts)}</p>
           <CartList />
         </Offcanvas.Body>
       </Offcanvas>
