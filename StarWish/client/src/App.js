@@ -12,13 +12,11 @@ function App() {
 
   return (
     <Router>
-      <ProductProvider>
           <MyWishListProvider>
             {isLoggedIn ? <Header /> : ""}
             <ApplicationViews />
             <Footer />
           </MyWishListProvider>
-      </ProductProvider>
     </Router>
   );
 }

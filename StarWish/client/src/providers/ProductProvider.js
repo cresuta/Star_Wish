@@ -4,12 +4,13 @@ export const ProductContext = React.createContext();
 
 export const ProductProvider = (props) => {
   
-  const eBayAuthToken = "v^1.1#i^1#f^0#I^3#r^0#p^1#t^H4sIAAAAAAAAAOVYa2wURRzv9doqxRY+AIKiXlYiWLJ7u3t7t3crd3gtLT2uT65UPGzIPmbb7d3tnjuztBe+NK2QGGMgvpBgYlUQEoOJH0xAA4hClBrAB4k8otEECeoHXxSIH9TZu1KulUBLz9jE+3CbmfnPf/6/3/wfM0P3lc2o2ly/+UqF447iwT66r9jhYGbSM8pKl1Y6i+8pLaLzBByDfYv6SvqdF5dBMZVMC6sBTBs6BK7eVFKHQrYzSFimLhgi1KCgiykABSQLsXBjg8BStJA2DWTIRpJwRVYECYnhVV9AZnhe5IFP5nGvfk1nmxEkeFkCqo9TfD6VAX4vwOMQWiCiQyTqKEiwNMuSNEcyXBvjEby8wAYohvHECVc7MKFm6FiEoolQ1lwhO9fMs/XmpooQAhNhJUQoEq6LNYcjK2qb2pa583SFRniIIRFZcGyrxlCAq11MWuDmy8CstBCzZBlASLhDuRXGKhXC14y5DfOzVPv8Es/6eA+nsmzA7/EUhMo6w0yJ6OZ22D2aQqpZUQHoSEOZWzGK2ZC6gYxGWk1YRWSFy/60WmJSUzVgBona6vDj4ZYWIlSD+01DX01ixszHNNhFxqrXkl5F9jJSAKikz6dIEudnRhbKaRuhedxKNYauaDZp0NVkoGqArQbjueHyuMFCzXqzGVaRbVG+nPcah3Qgbm9qbhct1KXb+wpSmAhXtnnrHRidjZCpSRYCoxrGD2QpChJiOq0pxPjBrC+OuE8vDBJdCKUFt7unp4fq8VCG2elmaZpxr21siMldICUSWNaO9Zy8dusJpJaFIuMwxfICyqSxLb3YV7EBeicR8vg5luNGeB9rVmh87z868jC7x0ZEoSJEZuz4CHC8n2Zlr0oXIkJCI07qtu0AkpghU6KZACidFGVAytjPLOy7miJ4vCrr8auAVHwBleQCqkpKXsVHMioANACSJAf8/6dAmairx4BsAlQQXy+YnzdocZjiN6xt5aN1uKiJ7nRTnE911jfWxKNRGI0o3Yy6ig3UVme44ESj4Ybga5IaZqYNr18IAuxYLxwJ9QZEQJkSvJhspEGLkdTkzPTaYI+ptIgmylRbGdyOgWQSf6YENZxORwqTsQsGcpLJ4vZwF65S/UdV6oaooO240wuVPR9iBWJao3AdsmM9Q8lGym2I+BBid6/PWu0aJ3hDIbdkZahOC0CELVHwOXDCkzSczClc0pSJT8kVTAxi4lPwJUOxZHRbC2UrM4XZ1Dq7EJzUmr1TIUWykokpOZ2GLw/TyuUw3BxuTcmd+qkseApukCkTQMMy8YWHarYPwW1GAuj4SIFMI5kEZvvUkoqdTFMpC4lSEky3rFqA7KKJkzvvlPQ7hv51XIyPCwQ4Dv9PCZucPdGsn241odC1cBJ3G/fYl5ZQUfbH9DsO0P2O/cUOB83TJLOUfrjMuabEeRcBcTahoKgrktFLaaJK4USmi8gyAZUAmbSomcVlDu3sKflq3hvPYAc9f/SVZ4aTmZn35EMvvD5Sysy6u4JlaY7hGI+XZwNx+sHroyXMvJI5tf0d63zL3qi6cPi+T7imOQNfXjo0QFeMCjkcpUXYIYuSzqHZG0J7un3Hf/zt3tYl7eamA/f7nnjyvd3OsrkNx+d9VHXpiyV/1kXKE5+7Pxj65uXl0Rd+qfj6tGdvR+vFYweGXwRm/c4Pyxf8RT4w96Wfi5xB8tmFQwM7ql6teejOli17n4keVOInj62Uy386Kp07kahc0BH9YWv8rctvLzr3fB8pLa381IMA8/Gqrbu69ZPDZ8/vX7xg4anoo7UHo9+5j6SP7NsYofed2M3A2uHnrj5yqLFj+PLg+2dWNsZnr9kDB6oryKc/W56I0LtTJ7eFt/86f+Uf+3aWzxbPvHLevDCrZN3pr167culCze/bn+rYXn548Y6ibe9s/H7Nul3vHj3/7ZZd2puvX608vim3jX8DH8rugn0TAAA=";
+  const eBayAuthToken = "v^1.1#i^1#f^0#I^3#r^0#p^1#t^H4sIAAAAAAAAAOVYbWwURRju9YtUvkIUNEblskiUlt2bvdv7WrmL1xbs9RuuFGiEOrs72257t3vZmaV3EWJTviRgjBF+CEZBSIjGVMVoxNSISAIiGj8aJYhRkB8SSYx/wMQfOHt3lGsl0NIzNvH+XHbmfd95n2fej5kB/eUVlVvrtl6d6ZhWvK8f9Bc7HPx0UFFeVjWrpPj+siKQJ+DY1/9wf+lAya9LMEzEk+IKhJOGjpEzlYjrWMwMhhjL1EUDYg2LOkwgLBJZjEWaGkU3B8SkaRBDNuKMM1obYiTk9agQKh6/X4YQQDqqX7fZZoQYN/CpCvBD6EGAB7yHzmNsoaiOCdSJPe92s0BgeaGN94k8EEGA8/H+DsbZjkysGToV4QATzrgrZnTNPF9v7SrEGJmEGmHC0ciyWEskWru0uW2JK89WOMdDjEBi4dFfNYaCnO0wbqFbL4Mz0mLMkmWEMeMKZ1cYbVSMXHfmDtzPUI0QgLxPoET7VcALUkGoXGaYCUhu7Yc9oimsmhEVkU40kr4do5QNqQfJJPfVTE1Ea53233ILxjVVQ2aIWVodWRNpbWXCNXTcNPQVLGXMXKXhbjZWvZr1KrKXl4JIZX0+RZKEAJ9bKGstR/OYlWoMXdFs0rCz2SDViHqNxnID8rihQi16ixlRie1Rvlwgx6Hg93XYm5rdRYt06/a+ogQlwpn5vP0OjGgTYmqSRdCIhbETGYpCDEwmNYUZO5mJxVz4pHCI6SYkKbpcfX19XJ+HM8wulxsA3rW6qTEmd6METcZUws71rLx2ewVWy0CREdXEmkjSSepLisYqdUDvYsKegOAWhBzvo90Kjx39x0AeZtfojChUhniDQhAE3SAoCQB5ZaEQGRLOBanL9gNJMM0moNmLSDIOZcTKNM4sGruaInq8qtsTUBGr+IIqKwRVlZW8io/lVZq4CEmSHAz8nxJlvKEeQ7KJSEFivWBx3qh14IR//erl/oZlPtkPXcnmDn+iq66ppqOhATdElR5erXcHl1anhdB4s+Gm4GviGmWmja5fCALsXC8cCXUGJkiZFLyYbCRRqxHX5PTU2mCPqbRCk6SrrTT9jqF4nP5NCmokmYwWpmIXDOQEi8Wd4S5cp/qPutRNUWE7cKcWKlsfUwMwqXG0D9m5nuZkI+EyID2E2MOdGa+dYwRvKuSSrDTXZSFMqCcKPQeOW0mjxZyjLU0Zv0q2YVIQ41ehlwzFkskdLZTpzBxlU+vqJnhCa6YmQ4pkxXsnFXQavTxMqZCjcLO4NSV76ucy4Dm8XuZMhA3LpBcersU+BLcZvUinRwpiGvE4MtsnV1TsYppIWARKcTTVqmoBqosGJ3beKR1wnPrXcdGrZTDodftAYFLY5MyJpnOq9YRC98IJ3G1co19awkWZHz/g+AgMOI4UOxzAD1i+CiwqL1lZWjKDwbSacBjqimSkOA2qHC1kOiSWibhelE5CzSwud2hnh+U/89549q0F94288lSU8NPznnzAAzdmyvjZ9850u4HAC7yPByDQARbcmC3l55Xes/nyoHvRYfYlpejkT4/tv3rUuvDOYjBzRMjhKCuiAVlU8uKJA+WHhMvlu9YOvv/Wxt7L267G1/tP7ji+dHvn6SfueqZ29qXfnLsPz18VmvHaiTAzbG2Z17/z1NMpa7N1bW+Pq7J+XuyXSteRsm1DVU+dqSxrmv/xukbmy0ozfOlKKri46u2vH7z289znt0nnD+yeMxjVQu6NG+9+9tjFY4+Un9386vZL9Y/3bSkCL7weOn/md+bgwZVDxvDu93ZdmFE61LDpQ7Lwk2nfReWeyrri4a5DP9Yypw+dmL0jBF5p/9xx9Ju67x9FF/nD9VcW7JmzYU3VlZeLGzb8sXP/pnPP1X677quKH77An86d9W5y657BhV1vHv+gqUR5qJNp7fhs77nGJ99Ap/+q5/aKQzuz2/g3zX/O+H0TAAA=";
   const apiUrl = "https://localhost:5001";
 
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   let [cartCount, setCartCount] = useState(0);
+  const [myWishListProducts, setMyWishListProducts] = useState([]);
 
   const updateCartCount = () => {
     let newClicks = ++cartCount;
@@ -46,8 +47,16 @@ export const ProductProvider = (props) => {
     .then((res) => res.json())
   }
 
+  const getAllProductsFromWishListId = (wishListId) => {
+    return fetch(`${apiUrl}/api/Product/mywishlistproducts?id=${wishListId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setMyWishListProducts(data);
+    }); 
+  }
+
   return (
-    <ProductContext.Provider value={{products, getAllProductsFromEbay, searchQuery, setSearchQuery, cartCount, setCartCount, updateCartCount, addProductToCart, getProductById}}>
+    <ProductContext.Provider value={{products, getAllProductsFromEbay, searchQuery, setSearchQuery, cartCount, setCartCount, updateCartCount, addProductToCart, getProductById, getAllProductsFromWishListId, myWishListProducts}}>
       {props.children}
     </ProductContext.Provider>
   );
