@@ -20,6 +20,7 @@ export default function Header() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
   // these useEffects will make sure that the cart count does not reset to zero if the current user refreshes page or navigates back to dashboard
   useEffect(() => {
     getAllWishListsByUserId(currentUser.id).then(() => {
@@ -67,7 +68,7 @@ export default function Header() {
             <Nav className="me-auto">
               <NavDropdown title="My StarWish" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/">Dashboard</NavDropdown.Item>
-                <NavDropdown.Item href="/wishlists">
+                <NavDropdown.Item disabled href="/wishlists">
                   Wish Lists
                 </NavDropdown.Item>
                 <NavDropdown.Divider />

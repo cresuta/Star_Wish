@@ -549,6 +549,7 @@ body {
 
 #star-icon-add-to-cart:active {
 	transform: translateY(2px);
+	
 }
 
 /* CartProduct.js and CartList.js */
