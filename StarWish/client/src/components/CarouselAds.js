@@ -57,7 +57,7 @@ export const CarouselAds = () => {
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="dashboard-ad4" interval={400000}>
+        <Carousel.Item className="dashboard-ad4" interval={4000}>
           <img
             src={require("../imgs/autoparts-ad.jpg")}
             className="d-block w-100"

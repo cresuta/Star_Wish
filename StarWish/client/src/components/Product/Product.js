@@ -18,7 +18,7 @@ export const Product = ({ product }) => {
     quantity: 0,
     condition: product?.condition,
     itemWebUrl: product?.itemWebUrl,
-    myWishListId: myCurrentCart.id,
+    myWishListId: myCurrentCart.id
   });
 
   const handleProductQtyChangeBeforeAddToCart = (e) => {
@@ -28,7 +28,6 @@ export const Product = ({ product }) => {
   };
 
   const handleStarAddToCart = () => {
-    console.log(cartProduct);
     addProductToCart(cartProduct);
   };
 
@@ -38,7 +37,7 @@ export const Product = ({ product }) => {
         <div className="product-img-container">
           <img
             src={product.image?.imageUrl}
-            alt="Hello"
+            alt="Product"
             className="product-img"
           />
         </div>
@@ -65,6 +64,7 @@ export const Product = ({ product }) => {
               className="qty-select"
               onChange={handleProductQtyChangeBeforeAddToCart}
             >
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

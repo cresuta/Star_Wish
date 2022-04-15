@@ -13,8 +13,7 @@ import { CartList } from "./ShoppingCart/CartList";
 export default function Header() {
   const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
   const { logout } = useContext(UserProfileContext);
-  const { myCurrentCart, getAllWishListsByUserId } =
-    useContext(MyWishListContext);
+  const { getAllWishListsByUserId } = useContext(MyWishListContext);
   let { cartCount, setCartCount, myWishListProducts } =
     useContext(ProductContext);
   const [show, setShow] = useState(false);
@@ -26,7 +25,7 @@ export default function Header() {
     getAllWishListsByUserId(currentUser.id).then(() => {
       setCartCount(JSON.parse(window.localStorage.getItem("cartCount")));
     });
-  });
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem("cartCount", cartCount);
@@ -41,19 +40,19 @@ export default function Header() {
 
   const subTotal = (shoppingCart) => {
     let sum = 0;
-    for(let i = 0; i < shoppingCart.length; i++) {
+    for (let i = 0; i < shoppingCart.length; i++) {
       sum += shoppingCart[i].price * shoppingCart[i].quantity;
     }
     return sum.toFixed(2);
-  }
+  };
 
   const subTotalItemCount = (shoppingCart) => {
     let sum = 0;
-    for(let i = 0; i < shoppingCart.length; i++) {
+    for (let i = 0; i < shoppingCart.length; i++) {
       sum += shoppingCart[i].quantity;
     }
     return sum;
-  }
+  };
 
   // we only want to display the header if the user is logged in and in the dashboard and we do NOT want this to display on login/register pages
   return (
@@ -78,7 +77,7 @@ export default function Header() {
               <div id="shopping-cart">
                 <i class="bi bi-cart" onClick={handleShow}></i>
                 <span class="cart-basket-count d-flex align-items-center justify-content-center">
-                  {cartCount}
+                  {subTotalItemCount(myWishListProducts)}
                 </span>
               </div>
             </Nav>
@@ -96,7 +95,10 @@ export default function Header() {
           <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="offcanvas__body">
-          <p>Subtotal ({subTotalItemCount(myWishListProducts)} items): ${subTotal(myWishListProducts)}</p>
+          <p>
+            Subtotal ({subTotalItemCount(myWishListProducts)} items): $
+            {subTotal(myWishListProducts)}
+          </p>
           <CartList />
         </Offcanvas.Body>
       </Offcanvas>

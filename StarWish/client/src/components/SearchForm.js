@@ -8,13 +8,11 @@ export const SearchForm = () => {
 
   const handleControlledInputChange = (e) => {
     const userInput = e.target.value;
-    // console.log(userInput);
     setSearchQuery(userInput);
   };
 
   const handleClickFetchApi = (e) => {
     e.preventDefault();
-    // console.log(`Clicked! Searched input: ${searchQuery}`);
     getAllProductsFromEbay(searchQuery);
   };
 

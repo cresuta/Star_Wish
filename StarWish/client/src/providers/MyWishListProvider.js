@@ -5,6 +5,7 @@ export const MyWishListContext = createContext();
 export function MyWishListProvider(props) {
   const apiUrl = "https://localhost:5001";
 
+  const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
   const [myWishList, setMyWishList] = useState([]);
   const [myCurrentCart, setMyCurrentCart] = useState({});
 
@@ -19,7 +20,7 @@ export function MyWishListProvider(props) {
     return fetch(`${apiUrl}/api/MyWishList/mywishlists?userProfileId=${userId}`)
       .then((res) => res.json())
       .then( resp =>{
-          const currentCart = resp.find(x => x.name === "Cart")
+          const currentCart = resp.find((x) => x.name === "Cart" && x.userProfileId === currentUser.id ? x : undefined )
           setMyCurrentCart(currentCart)
       })
   };
