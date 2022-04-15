@@ -8,6 +8,7 @@ export default function Register() {
   const navigate = useNavigate();
   const { register } = useContext(UserProfileContext);
 
+  // new user
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [displayName, setDisplayName] = useState();

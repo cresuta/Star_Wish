@@ -556,6 +556,21 @@ body {
 	width: 50%;
 }
 
+.shopping-cart-subtotal-container {
+	position: relative;
+	top: -20px;
+	margin: 0;
+}
+
+.shopping-cart-title {
+	font-weight: bold;
+	border-bottom: 1px solid black;
+}
+
+.subtotal {
+	font-weight: bold;
+}
+
 .cart-product-wrapper {
 	display: flex;
 	justify-content: center;
@@ -574,6 +589,14 @@ body {
 	position: relative;
 	left: -30px;
 	top: 0px;
+}
+
+.cart-product-delete:hover {
+	color: #0d6efd; 
+}
+
+.cart-product-delete:active {
+	transform: translateY(2px);
 }
 
 .cart-product-img {
@@ -623,6 +646,8 @@ body {
 	display: flex;
 	align-items: center;
 }
+
+
 
 
 

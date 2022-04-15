@@ -42,6 +42,12 @@ export const ProductProvider = (props) => {
     })
   }
 
+  const deleteProductFromCart = (id) => {
+    return fetch(`${apiUrl}/api/Product/${id}`, {
+      method: "DELETE"
+    })
+  }
+
   const getProductById = (id) => {
     return fetch(`${apiUrl}/api/Product/${id}`)
     .then((res) => res.json())
@@ -57,7 +63,7 @@ export const ProductProvider = (props) => {
 
 
   return (
-    <ProductContext.Provider value={{products, getAllProductsFromEbay, searchQuery, setSearchQuery, cartCount, setCartCount, updateCartCount, addProductToCart, getProductById, getAllProductsFromWishListId, myWishListProducts}}>
+    <ProductContext.Provider value={{products, getAllProductsFromEbay, searchQuery, setSearchQuery, cartCount, setCartCount, updateCartCount, addProductToCart, getProductById, getAllProductsFromWishListId, myWishListProducts, deleteProductFromCart}}>
       {props.children}
     </ProductContext.Provider>
   );

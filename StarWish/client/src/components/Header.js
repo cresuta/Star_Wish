@@ -92,12 +92,12 @@ export default function Header() {
         className="shopping-cart"
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Shopping Cart</Offcanvas.Title>
+          <Offcanvas.Title className="shopping-cart-title">Shopping Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="offcanvas__body">
-          <p>
-            Subtotal ({subTotalItemCount(myWishListProducts)} items): $
-            {subTotal(myWishListProducts)}
+          <p className="shopping-cart-subtotal-container">
+            Subtotal ({subTotalItemCount(myWishListProducts)} items): <span className="subtotal">$
+            {subTotal(myWishListProducts)}</span>
           </p>
           <CartList />
         </Offcanvas.Body>

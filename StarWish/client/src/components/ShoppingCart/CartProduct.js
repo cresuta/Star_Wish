@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
+import { ProductContext } from "../../providers/ProductProvider";
 
 export const CartProduct = ({ product }) => {
+
+  const {deleteProductFromCart} = useContext(ProductContext);
+
+  const handleRemoveProductFromCart = () => {
+    deleteProductFromCart(product.id)
+  }
+
   return (
     <>
       <section className="cart-product-wrapper">
-        <div className="cart-product-delete">
+        <div className="cart-product-delete" onClick={handleRemoveProductFromCart}>
           <i class="bi bi-x-square"></i>
         </div>
         <div className="cart-product-img-container">
