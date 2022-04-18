@@ -3,10 +3,18 @@ import { Form } from "react-bootstrap";
 import { ProductContext } from "../../providers/ProductProvider";
 
 export const CartProduct = ({ product }) => {
-  const { deleteProductFromCart } = useContext(ProductContext);
+  const { deleteProductFromCart, setCartCount, cartCount } =
+    useContext(ProductContext);
 
   const handleRemoveProductFromCart = () => {
     deleteProductFromCart(product.id);
+  };
+
+  const updateCartCountFromShoppingCart = () => {
+    if (cartCount > 0) {
+      let newClick = cartCount - 1;
+      setCartCount(newClick);
+    }
   };
 
   return (
@@ -14,7 +22,10 @@ export const CartProduct = ({ product }) => {
       <section className="cart-product-wrapper">
         <div
           className="cart-product-delete"
-          onClick={handleRemoveProductFromCart}
+          onClick={() => {
+            updateCartCountFromShoppingCart();
+            handleRemoveProductFromCart();
+          }}
         >
           <i class="bi bi-x-square"></i>
         </div>
@@ -49,11 +60,7 @@ export const CartProduct = ({ product }) => {
             <p className="cart-product-price">${product?.price}</p>
             <div className="cart-product-qty">
               <label>Qty</label>
-              <Form.Select
-                size="sm"
-                name="quantity"
-                className="qty-select"
-              >
+              <Form.Select size="sm" name="quantity" className="qty-select">
                 <option value="1">{product?.quantity}</option>
                 <option value="1">1</option>
                 <option value="2">2</option>

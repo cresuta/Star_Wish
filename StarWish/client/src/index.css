@@ -303,6 +303,13 @@ body {
 	margin-right: 3em;
 }
 
+.header {
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+}
+
 #shopping-cart {
 	/* display: flex;
 	align-self: center; */
@@ -363,7 +370,10 @@ body {
 /* Search Form */
 .searchform {
 	max-width: 75vw;
-	margin: 1em auto;
+	margin-top: 5em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
 }
 
 .form-field {

@@ -58,7 +58,7 @@ export default function Header() {
   // we only want to display the header if the user is logged in and in the dashboard and we do NOT want this to display on login/register pages
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" className="header">
         <Container>
           <Navbar.Brand>
             Welcome back, <span>{currentUser.firstName}</span>!
@@ -66,7 +66,7 @@ export default function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="navbar-rightside" id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavDropdown title="My StarWish" id="basic-nav-dropdown">
+              <NavDropdown title="My StarWish" id="basic-nav-dropdown" className="header-dropdown">
                 <NavDropdown.Item href="/">Dashboard</NavDropdown.Item>
                 <NavDropdown.Item disabled href="/wishlists">
                   Wish Lists
@@ -78,7 +78,8 @@ export default function Header() {
               <div id="shopping-cart">
                 <i class="bi bi-cart" onClick={handleShow}></i>
                 <span class="cart-basket-count d-flex align-items-center justify-content-center">
-                  {subTotalItemCount(myWishListProducts)}
+                  {/* {subTotalItemCount(myWishListProducts)} */}
+                  {cartCount}
                 </span>
               </div>
             </Nav>
