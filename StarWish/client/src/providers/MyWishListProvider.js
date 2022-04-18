@@ -25,8 +25,19 @@ export function MyWishListProvider(props) {
       })
   };
 
+  const saveWishList = (wishList) => {
+    return fetch(`${apiUrl}/api/MyWishList/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(wishList),
+    })
+    .then(res => res.json())
+  }
+
   return (
-    <MyWishListContext.Provider value={{ myWishList, myCurrentCart, getMyWishListById, getAllWishListsByUserId }}>
+    <MyWishListContext.Provider value={{ myWishList, myCurrentCart, getMyWishListById, getAllWishListsByUserId, saveWishList }}>
       {props.children}
     </MyWishListContext.Provider>
   );

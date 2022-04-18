@@ -11,14 +11,12 @@ export const Product = ({ product }) => {
   const [cartProduct, setCartProduct] = useState({
     title: product.title,
     imageUrl:
-      product.image?.imageUrl === undefined
-        ? ""
-        : product.image?.imageUrl,
+      product.image?.imageUrl === undefined ? "" : product.image?.imageUrl,
     price: +product?.price.value,
     quantity: 1,
     condition: product?.condition,
     itemWebUrl: product?.itemWebUrl,
-    myWishListId: myCurrentCart.id
+    myWishListId: myCurrentCart.id,
   });
 
   const handleProductQtyChangeBeforeAddToCart = (e) => {
