@@ -25,9 +25,9 @@ export default function ApplicationViews() {
     );
   } else {
     return (
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
     );
   }
 }

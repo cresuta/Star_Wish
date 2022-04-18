@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Form } from "react-bootstrap";
 import { ProductContext } from "../../providers/ProductProvider";
+import { MyWishListContext } from "../../providers/MyWishListProvider";
 
 export const CartProduct = ({ product }) => {
-  const { deleteProductFromCart, setCartCount, cartCount } =
+  const { deleteProductFromCart, setCartCount, cartCount, updateProductQuatityInCart } =
     useContext(ProductContext);
+    const { myCurrentCart } = useContext(MyWishListContext);
 
   const handleRemoveProductFromCart = () => {
     deleteProductFromCart(product.id);
@@ -16,6 +18,19 @@ export const CartProduct = ({ product }) => {
       setCartCount(newClick);
     }
   };
+
+  const [shoppingCartProduct, setShoppingCartProduct] = useState({
+    quantity: 0,
+  });
+
+  const handleShoppingCartProductQtyChange = (e) => {
+    const newCartProduct = { ...shoppingCartProduct };
+    newCartProduct[e.target.name] = +e.target.value;
+    setShoppingCartProduct(newCartProduct);
+    updateProductQuatityInCart(product, +e.target.value)
+  };
+
+
 
   return (
     <>
@@ -60,8 +75,13 @@ export const CartProduct = ({ product }) => {
             <p className="cart-product-price">${product?.price}</p>
             <div className="cart-product-qty">
               <label>Qty</label>
-              <Form.Select size="sm" name="quantity" className="qty-select">
-                <option value="1">{product?.quantity}</option>
+              <Form.Select
+                size="sm"
+                name="quantity"
+                className="qty-select"
+                onChange={handleShoppingCartProductQtyChange}
+              >
+                <option value={product?.quantity}>{product?.quantity}</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

@@ -15,7 +15,7 @@ export const Product = ({ product }) => {
         ? ""
         : product.image?.imageUrl,
     price: +product?.price.value,
-    quantity: 0,
+    quantity: 1,
     condition: product?.condition,
     itemWebUrl: product?.itemWebUrl,
     myWishListId: myCurrentCart.id
@@ -64,7 +64,7 @@ export const Product = ({ product }) => {
               className="qty-select"
               onChange={handleProductQtyChangeBeforeAddToCart}
             >
-              <option value="0">0</option>
+              {/* <option value="0">0</option> */}
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
