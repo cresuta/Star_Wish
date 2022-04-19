@@ -16,6 +16,9 @@ export const MyWishListCard = ({ product }) => {
             className="wishlist-product-img"
           />
         </div>
+        <span class="cart-basket-count d-flex align-items-center justify-content-center wishlist-product-qty">
+          {product.quantity}
+        </span>
         <div className="wishlist-product-info">
           <h3 className="wishlist-product-title2">{product?.title}</h3>
 
@@ -31,9 +34,18 @@ export const MyWishListCard = ({ product }) => {
           </div>
         </div>
       </section>
-      {/* <section className="">
-        <Button variant="outline-secondary">Secondary</Button>{" "}
-      </section> */}
+      <section className="wishlist-buttons">
+        <a href={product.itemWebUrl} target="_blank">
+          <Button variant="outline-secondary" className="wishlist-btn view-item">
+            View Item
+          </Button>
+        </a>
+        <a href="#" target="_blank">
+          <Button variant="outline-secondary" className="wishlist-btn">
+            Share Gift Item
+          </Button>
+        </a>
+      </section>
     </>
   );
 };

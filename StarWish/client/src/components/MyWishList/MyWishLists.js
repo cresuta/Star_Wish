@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../providers/ProductProvider";
 import { MyWishListContext } from "../../providers/MyWishListProvider";
 import { MyWishListCard } from "./MyWishListCard";
+import { Button } from "react-bootstrap";
 
 export const MyWishLists = () => {
   const { myWishListProducts, getAllProductsFromWishListId } =
@@ -49,6 +50,11 @@ export const MyWishLists = () => {
           <MyWishListCard key={p.id} product={p} />
         ))}
       </div>
+      {/* <section className="">
+        <Button variant="outline-secondary" className="">
+          Print Wish List
+        </Button> 
+      </section> */}
     </>
   );
 };
