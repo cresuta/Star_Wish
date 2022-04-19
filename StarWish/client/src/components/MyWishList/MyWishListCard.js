@@ -1,15 +1,11 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 export const MyWishListCard = ({ product }) => {
   return (
     <>
-      
-      <div className="wishlist-product-wrapper">
-        <section></section>
-        <section></section>
-      </div>
-      {/* <section className="product-wrapper">
-        <div className="product-img-container">
+      <section className="wishlist-product-wrapper">
+        <div className="wishlist-product-img-container">
           <img
             src={
               product?.imageUrl === ""
@@ -17,25 +13,26 @@ export const MyWishListCard = ({ product }) => {
                 : product?.imageUrl
             }
             alt="Product"
-            className="product-img"
+            className="wishlist-product-img"
           />
         </div>
-        <div className="product-info">
-          <a
-            target="_blank"
-            rel="noreferrer"
-            className="product-title"
-            href={product?.itemWebUrl}
-          >
-            <h3 className="product-title2">{product?.title}</h3>
-          </a>
-          <div className="product-subtitle">Brand {product?.condition}</div>
-          <div className="product-details">
-            <p className="product-price">${product?.price}</p>
-            <p className="product-offer">Buy It Now</p>
-            <p className="product-shipping">Free Shipping</p>
+        <div className="wishlist-product-info">
+          <h3 className="wishlist-product-title2">{product?.title}</h3>
+
+          <div className="wishlist-product-subtitle">
+            Brand {product?.condition}
+            <span>
+              <i class="bi bi-dot"></i>Buy It Now<i class="bi bi-dot"></i>Free
+              Shipping
+            </span>
+          </div>
+          <div className="wishlist-product-details">
+            <p className="wishlist-product-price">${product?.price}</p>
           </div>
         </div>
+      </section>
+      {/* <section className="">
+        <Button variant="outline-secondary">Secondary</Button>{" "}
       </section> */}
     </>
   );

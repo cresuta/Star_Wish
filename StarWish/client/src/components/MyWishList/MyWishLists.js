@@ -14,28 +14,37 @@ export const MyWishLists = () => {
     getAllProductsFromWishListId(currentUser.id);
   }, []);
 
+  const subTotal = (shoppingCart) => {
+    let sum = 0;
+    for (let i = 0; i < shoppingCart.length; i++) {
+      sum += shoppingCart[i].price * shoppingCart[i].quantity;
+    }
+    return sum.toFixed(2);
+  };
+
   return (
     <>
-      
-      <div className="wishlist-results">
-      <h2 id="Wishlist-heading">Your Wish List</h2>
-      <div className="wishlist-subheading">
-        <section className="wishlist-subheading-1">
-          <span>Wish Placed</span>
-          <span>April 26th, 2022</span>
-        </section>
-        <section className="wishlist-subheading-1">
-          <span>Placed By</span>
-          <span>Name</span>
-        </section>
-        <section className="wishlist-subheading-1">
-          <span>Total</span>
-          <span>$205.00</span>
-        </section>
-        <section className="wishlist-subheading-1">
-          <span>Wish List #114-9345345-1232123</span>
-        </section>
+      <div className="wishlist-container">
+        <h2 id="Wishlist-heading">Your Wish List</h2>
+        <div className="wishlist-subheading">
+          <section className="wishlist-subheading-1">
+            <span className="subheading-1">Wish Placed</span>
+            <span>April 26th, 2022</span>
+          </section>
+          <section className="wishlist-subheading-2">
+            <span className="subheading-1">Placed By</span>
+            <span>{currentUser.firstName}</span>
+          </section>
+          <section className="wishlist-subheading-3">
+            <span className="subheading-1">Total</span>
+            <span>${subTotal(myWishListProducts)}</span>
+          </section>
+          <section className="wishlist-subheading-4">
+            <span className="subheading-1">Wish List #114-93453-12321</span>
+          </section>
+        </div>
       </div>
+      <div className="wishlist-results-container">
         {myWishListProducts.map((p) => (
           <MyWishListCard key={p.id} product={p} />
         ))}
