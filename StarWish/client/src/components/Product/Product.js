@@ -34,7 +34,7 @@ export const Product = ({ product }) => {
       <section className="product-wrapper">
         <div className="product-img-container">
           <img
-            src={product.image?.imageUrl}
+            src={product.image?.imageUrl === undefined ? "https://images.unsplash.com/photo-1628911774602-74a0cfee9b0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" : product.image?.imageUrl}
             alt="Product"
             className="product-img"
           />

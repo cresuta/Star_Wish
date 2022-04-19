@@ -677,6 +677,42 @@ body {
 	opacity: 100%;
 }
 
+/* Wish List */
+
+.wishlist-results {
+	position: relative;
+	top: 100px;
+	margin: auto;
+	/* border: 1px solid red; */
+	width: 800px;
+}
+
+#Wishlist-heading {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.wishlist-subheading {
+	display: flex;
+	justify-content: space-around;
+	background-color: lightgrey;
+	margin-top: 1em;
+	border-radius: 5px;
+	border-bottom: none;
+	padding: 1em;
+}
+
+.wishlist-subheading-1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.wishlist-product-wrapper {
+	border: 1px solid red;
+}
+
 
 
 

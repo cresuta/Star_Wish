@@ -35,13 +35,7 @@ export const CartList = () => {
           <CartProduct key={p.id} product={p} />
         ))}
       </div>
-      {myWishListProducts.length > 0 ? (
-        <Link to={"/mywishlists"}>
-          <Button className="save-wishlist">Save Wish List</Button>
-        </Link>
-      ) : (
-        ""
-      )}
+     
     </>
   );
 };
