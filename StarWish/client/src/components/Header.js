@@ -68,7 +68,7 @@ export default function Header() {
             <Nav className="me-auto">
               <NavDropdown title="My StarWish" id="basic-nav-dropdown" className="header-dropdown">
                 <NavDropdown.Item href="/">Dashboard</NavDropdown.Item>
-                <NavDropdown.Item disabled href="/wishlists">
+                <NavDropdown.Item href="/mywishlists">
                   Wish Lists
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
