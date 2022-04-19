@@ -36,15 +36,17 @@ export const MyWishListCard = ({ product }) => {
       </section>
       <section className="wishlist-buttons">
         <a href={product.itemWebUrl} target="_blank">
-          <Button variant="outline-secondary" className="wishlist-btn view-item">
+          <Button
+            variant="outline-secondary"
+            className="wishlist-btn view-item"
+          >
             View Item
           </Button>
         </a>
-        <a href="#" target="_blank">
-          <Button variant="outline-secondary" className="wishlist-btn">
-            Share Gift Item
-          </Button>
-        </a>
+
+        <Button variant="outline-secondary" className="wishlist-btn">
+          Share Gift Item
+        </Button>
       </section>
     </>
   );

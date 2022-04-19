@@ -648,6 +648,7 @@ body {
 	font-weight: bold;
 	position: relative;
 	top: 5px;
+	color:#E53238;
 }
 
 .cart-product-qty {
@@ -840,6 +841,18 @@ body {
 	background-color: #F5AF02;
 	color: black;
 	border-color: #F5AF02;
+}
+
+.wishlist-btn:active {
+	background-color: #F5AF02;
+	color: black;
+	border-color: #F5AF02;
+} 
+
+.share-wishlist-btn {
+	font-size: 0.8em;
+	font-style: italic;
+	color: black;
 }
 
 

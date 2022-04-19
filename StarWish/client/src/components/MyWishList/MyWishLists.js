@@ -27,6 +27,7 @@ export const MyWishLists = () => {
     <>
       <div className="wishlist-container">
         <h2 id="Wishlist-heading">Your Wish List</h2>
+
         <div className="wishlist-subheading">
           <section className="wishlist-subheading-1">
             <span className="subheading-1">Wish Placed</span>
@@ -42,6 +43,7 @@ export const MyWishLists = () => {
           </section>
           <section className="wishlist-subheading-4">
             <span className="subheading-1">Wish List #114-93453-12321</span>
+            <a href="" className="share-wishlist-btn">Share Wish List</a>
           </section>
         </div>
       </div>
@@ -50,11 +52,6 @@ export const MyWishLists = () => {
           <MyWishListCard key={p.id} product={p} />
         ))}
       </div>
-      {/* <section className="">
-        <Button variant="outline-secondary" className="">
-          Print Wish List
-        </Button> 
-      </section> */}
     </>
   );
 };
