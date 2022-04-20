@@ -5,10 +5,9 @@ import { ProductList } from "./Product/ProductList";
 import { useContext } from "react";
 
 export const Dashboard = () => {
+  const { searchQuery } = useContext(ProductContext);
 
-  const {searchQuery} = useContext(ProductContext);
-
-  if(searchQuery.length === 0) {
+  if (searchQuery.length === 0) {
     return (
       <>
         <SearchForm />
@@ -23,5 +22,4 @@ export const Dashboard = () => {
       </>
     );
   }
-  
 };

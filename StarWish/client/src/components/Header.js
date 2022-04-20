@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../providers/ProductProvider";
 import { Link } from "react-router-dom";
 import { MyWishListContext } from "../providers/MyWishListProvider";
-import { Offcanvas, Card } from "react-bootstrap";
+import { Offcanvas, Button } from "react-bootstrap";
 import { CartProduct } from "./ShoppingCart/CartProduct";
 import { CartList } from "./ShoppingCart/CartList";
 
@@ -14,12 +14,15 @@ export default function Header() {
   const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
   const { logout } = useContext(UserProfileContext);
   const { getAllWishListsByUserId } = useContext(MyWishListContext);
-  let { cartCount, setCartCount, myWishListProducts } =
-    useContext(ProductContext);
+  let {
+    cartCount,
+    setCartCount,
+    myWishListProducts,
+    getAllProductsFromWishListId,
+  } = useContext(ProductContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   // these useEffects will make sure that the cart count does not reset to zero if the current user refreshes page or navigates back to dashboard
   useEffect(() => {
@@ -31,6 +34,10 @@ export default function Header() {
   useEffect(() => {
     window.localStorage.setItem("cartCount", cartCount);
   }, [cartCount]);
+
+  useEffect(() => {
+    getAllProductsFromWishListId(currentUser.id);
+  });
 
   const navigate = useNavigate();
   const signOut = (e) => {
@@ -66,9 +73,13 @@ export default function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="navbar-rightside" id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavDropdown title="My StarWish" id="basic-nav-dropdown" className="header-dropdown">
+              <NavDropdown
+                title="My StarWish"
+                id="basic-nav-dropdown"
+                className="header-dropdown"
+              >
                 <NavDropdown.Item href="/">Dashboard</NavDropdown.Item>
-                <NavDropdown.Item disabled href="/wishlists">
+                <NavDropdown.Item href="/mywishlists">
                   Wish Lists
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -78,7 +89,6 @@ export default function Header() {
               <div id="shopping-cart">
                 <i class="bi bi-cart" onClick={handleShow}></i>
                 <span class="cart-basket-count d-flex align-items-center justify-content-center">
-                  {/* {subTotalItemCount(myWishListProducts)} */}
                   {cartCount}
                 </span>
               </div>
@@ -94,14 +104,26 @@ export default function Header() {
         className="shopping-cart"
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className="shopping-cart-title">Shopping Cart</Offcanvas.Title>
+          <Offcanvas.Title className="shopping-cart-title">
+            Shopping Cart
+          </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="offcanvas__body">
           <p className="shopping-cart-subtotal-container">
-            Subtotal ({subTotalItemCount(myWishListProducts)} items): <span className="subtotal">$
-            {subTotal(myWishListProducts)}</span>
+            Subtotal ({subTotalItemCount(myWishListProducts)} items):{" "}
+            <span className="subtotal">${subTotal(myWishListProducts)}</span>
           </p>
+
           <CartList />
+          {myWishListProducts.length > 0 ? (
+            <Link to={"/mywishlists"}>
+              <Button onClick={handleClose} className="save-wishlist">
+                Save Wish List
+              </Button>
+            </Link>
+          ) : (
+            ""
+          )}
         </Offcanvas.Body>
       </Offcanvas>
     </>

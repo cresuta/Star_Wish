@@ -11,6 +11,7 @@ import { ProductList } from "./Product/ProductList";
 import { ProductProvider } from "../providers/ProductProvider";
 import { SearchForm } from "./SearchForm";
 import { MyWishListProvider } from "../providers/MyWishListProvider";
+import { MyWishLists } from "./MyWishList/MyWishLists";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -27,6 +28,7 @@ export default function ApplicationViews() {
     return (
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/mywishlists" element={<MyWishLists />} />
       </Routes>
     );
   }

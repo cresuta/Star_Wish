@@ -60,14 +60,10 @@ namespace StarWish.Controllers
 
         // PATCH api/<ProductController>/5
         [HttpPatch("{id}")]
-        public IActionResult Patch(int id, Product product)
+        public IActionResult Patch(int id, int qty)
         {
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
-
-            _productRepository.Update(product);
+ 
+            _productRepository.Update(id, qty);
             return NoContent();
         }
     }

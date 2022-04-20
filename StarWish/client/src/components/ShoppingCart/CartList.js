@@ -1,15 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../../providers/ProductProvider";
 import { CartProduct } from "./CartProduct";
-import { MyWishListContext } from "../../providers/MyWishListProvider";
 
 export const CartList = () => {
-  const { myWishListProducts, getAllProductsFromWishListId } = useContext(ProductContext);
-  const { myCurrentCart } = useContext(MyWishListContext);
+  const { myWishListProducts, getAllProductsFromWishListId } =
+    useContext(ProductContext);
+  const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
 
   useEffect(() => {
-      getAllProductsFromWishListId(myCurrentCart.id)
-  })
+    getAllProductsFromWishListId(currentUser.id);
+  }, []);
 
   return (
     <>
