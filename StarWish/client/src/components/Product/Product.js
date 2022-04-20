@@ -9,7 +9,7 @@ export const Product = ({ product }) => {
   const { myCurrentCart } = useContext(MyWishListContext);
 
   const [cartProduct, setCartProduct] = useState({
-    title: product.title,
+    title: product?.title,
     imageUrl:
       product.image?.imageUrl === undefined ? "" : product.image?.imageUrl,
     price: +product?.price.value,
@@ -26,7 +26,16 @@ export const Product = ({ product }) => {
   };
 
   const handleStarAddToCart = () => {
-    addProductToCart(cartProduct);
+    addProductToCart({
+      title: product?.title,
+      imageUrl:
+        product.image?.imageUrl === undefined ? "" : product.image?.imageUrl,
+      price: +product?.price.value,
+      quantity: cartProduct.quantity,
+      condition: product?.condition,
+      itemWebUrl: product?.itemWebUrl,
+      myWishListId: myCurrentCart.id
+    });
   };
 
   return (
