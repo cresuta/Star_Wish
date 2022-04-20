@@ -11,14 +11,12 @@ export const Product = ({ product }) => {
   const [cartProduct, setCartProduct] = useState({
     title: product.title,
     imageUrl:
-      product.image?.imageUrl === undefined
-        ? ""
-        : product.image?.imageUrl,
+      product.image?.imageUrl === undefined ? "" : product.image?.imageUrl,
     price: +product?.price.value,
-    quantity: 0,
+    quantity: 1,
     condition: product?.condition,
     itemWebUrl: product?.itemWebUrl,
-    myWishListId: myCurrentCart.id
+    myWishListId: myCurrentCart.id,
   });
 
   const handleProductQtyChangeBeforeAddToCart = (e) => {
@@ -36,7 +34,11 @@ export const Product = ({ product }) => {
       <section className="product-wrapper">
         <div className="product-img-container">
           <img
-            src={product.image?.imageUrl}
+            src={
+              product.image?.imageUrl === undefined
+                ? "https://images.unsplash.com/photo-1628911774602-74a0cfee9b0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                : product.image?.imageUrl
+            }
             alt="Product"
             className="product-img"
           />
@@ -64,7 +66,6 @@ export const Product = ({ product }) => {
               className="qty-select"
               onChange={handleProductQtyChangeBeforeAddToCart}
             >
-              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

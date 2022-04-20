@@ -157,7 +157,7 @@ namespace StarWish.Repositories
         }
 
         // We only want to update the qty as all other data shouldn't be altered for each product
-        public void Update(Product product)
+        public void Update(int id, int qty)
         {
             using (var conn = Connection)
             {
@@ -169,8 +169,8 @@ namespace StarWish.Repositories
                            SET Quantity = @Quantity
                          WHERE Id = @Id";
 
-                    DbUtils.AddParameter(cmd, "@Quantity", product.Quantity);
-                    DbUtils.AddParameter(cmd, "@Id", product.Id);
+                    DbUtils.AddParameter(cmd, "@Quantity", qty);
+                    DbUtils.AddParameter(cmd, "@Id", id);
 
                     cmd.ExecuteNonQuery();
                 }
