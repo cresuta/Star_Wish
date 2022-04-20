@@ -736,9 +736,7 @@ body {
 
 .wishlist-product-wrapper {
 	display: flex;
-	/* justify-content: center; */
 	align-items: center;
-	/* height: 30vh; */
 	width: 760px;
 	border-bottom: 1px solid lightgrey;
 	padding: 0 0 2em 1em;
@@ -746,8 +744,7 @@ body {
 }
 
 .wishlist-product-wrapper:nth-of-type(1) {
-	padding-top: 4em;
-	
+	padding-top: 4em;	
 }
 
 .wishlist-product-img-container {

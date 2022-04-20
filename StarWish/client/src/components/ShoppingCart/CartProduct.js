@@ -4,9 +4,13 @@ import { ProductContext } from "../../providers/ProductProvider";
 import { MyWishListContext } from "../../providers/MyWishListProvider";
 
 export const CartProduct = ({ product }) => {
-  const { deleteProductFromCart, setCartCount, cartCount, updateProductQuatityInCart } =
-    useContext(ProductContext);
-    const { myCurrentCart } = useContext(MyWishListContext);
+  const {
+    deleteProductFromCart,
+    setCartCount,
+    cartCount,
+    updateProductQuatityInCart,
+  } = useContext(ProductContext);
+  const { myCurrentCart } = useContext(MyWishListContext);
 
   const handleRemoveProductFromCart = () => {
     deleteProductFromCart(product.id);
@@ -27,7 +31,7 @@ export const CartProduct = ({ product }) => {
     const newCartProduct = { ...shoppingCartProduct };
     newCartProduct[e.target.name] = +e.target.value;
     setShoppingCartProduct(newCartProduct);
-    updateProductQuatityInCart(product, +e.target.value)
+    updateProductQuatityInCart(product, +e.target.value);
   };
 
   return (

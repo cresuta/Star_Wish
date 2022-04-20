@@ -14,12 +14,15 @@ export default function Header() {
   const currentUser = JSON.parse(sessionStorage.getItem("userProfile"));
   const { logout } = useContext(UserProfileContext);
   const { getAllWishListsByUserId } = useContext(MyWishListContext);
-  let { cartCount, setCartCount, myWishListProducts, getAllProductsFromWishListId} =
-    useContext(ProductContext);
+  let {
+    cartCount,
+    setCartCount,
+    myWishListProducts,
+    getAllProductsFromWishListId,
+  } = useContext(ProductContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   // these useEffects will make sure that the cart count does not reset to zero if the current user refreshes page or navigates back to dashboard
   useEffect(() => {
@@ -33,8 +36,8 @@ export default function Header() {
   }, [cartCount]);
 
   useEffect(() => {
-    getAllProductsFromWishListId(currentUser.id)
-  }, []);
+    getAllProductsFromWishListId(currentUser.id);
+  });
 
   const navigate = useNavigate();
   const signOut = (e) => {
@@ -86,7 +89,6 @@ export default function Header() {
               <div id="shopping-cart">
                 <i class="bi bi-cart" onClick={handleShow}></i>
                 <span class="cart-basket-count d-flex align-items-center justify-content-center">
-                  {/* {subTotalItemCount(myWishListProducts)} */}
                   {cartCount}
                 </span>
               </div>
@@ -111,10 +113,13 @@ export default function Header() {
             Subtotal ({subTotalItemCount(myWishListProducts)} items):{" "}
             <span className="subtotal">${subTotal(myWishListProducts)}</span>
           </p>
+
           <CartList />
           {myWishListProducts.length > 0 ? (
             <Link to={"/mywishlists"}>
-              <Button onClick={handleClose} className="save-wishlist">Save Wish List</Button>
+              <Button onClick={handleClose} className="save-wishlist">
+                Save Wish List
+              </Button>
             </Link>
           ) : (
             ""
