@@ -30,8 +30,6 @@ export const CartProduct = ({ product }) => {
     updateProductQuatityInCart(product, +e.target.value)
   };
 
-
-
   return (
     <>
       <section className="cart-product-wrapper">
@@ -72,7 +70,7 @@ export const CartProduct = ({ product }) => {
             </span>
           </div>
           <div className="cart-product-details">
-            <p className="cart-product-price">${product?.price}</p>
+            <p className="cart-product-price">${product?.price.toFixed(2)}</p>
             <div className="cart-product-qty">
               <label>Qty</label>
               <Form.Select

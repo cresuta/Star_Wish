@@ -34,7 +34,7 @@ export default function Header() {
 
   useEffect(() => {
     getAllProductsFromWishListId(currentUser.id)
-  });
+  }, []);
 
   const navigate = useNavigate();
   const signOut = (e) => {
